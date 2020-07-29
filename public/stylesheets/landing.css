@@ -1,0 +1,109 @@
+/*sets background to black */
+body {
+  background-color: #000;
+}
+
+/* centers the CampZ and view all campgrounds button to middle and pushes it forward */ 
+#landing-header {
+  /* z-index sets it forward from everything else that is under z-index of 1 */
+  z-index: 1;
+  /* to use z-index need to set position to anything besides default static */
+  position: relative;
+  text-align: center;
+  /*set padding top to 40 view height */
+  padding-top: 40vh;
+}
+
+/*changes color of title to white to see better */
+#landing-header h1 {
+  color:#fff;
+}
+
+/* style unordered list to make sure it fits across entire page */
+.slideshow {
+  position: fixed;
+  /* width and height says take up 100% of page */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*make sure background image behind the text of everything else */
+  z-index: 0;
+  /* will remove the bullet points */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* select each unordered item inside the list */
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* allow image to take up entire space of page */
+  background-size: cover;
+  /* will center images perfectly on page */
+  background-position: 50% 50%;
+  /* images not repeating vertically or horizontally */
+  background-repeat: no-repeat;
+  /* images start faded out */
+  opacity: 0;
+  z-index: 0;
+  /* allow us to fade images in and out -- name:imageAnimation, last 50s, linear same speed beginning to end, infinite: slidehsow never ends */
+  animation: imageAnimation 50s linear infinite;
+}
+
+/* sets background image to list item, goes all the way to 50 with 10sec each */
+/* first image starts right away */
+.slideshow li:nth-child(1) { 
+  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+/* next image fades in 10s and starts in 10 seconds */
+.slideshow li:nth-child(2) { 
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+}
+
+/* taking the keyframe selector and giving it the name of the animation we called it */
+@keyframes imageAnimation { 
+  /* start at 0, smooth transition from animation-timing-function*/
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  /* fade it in to opacity of 1  */
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  /*leave the opacity to 20% */
+  20% {
+    opacity: 1
+  }
+  /* then fade it out */
+  30% {
+    opacity: 0
+  }
+}
+
+/* background slider works on all browers */
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
+
+

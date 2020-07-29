@@ -1,0 +1,19 @@
+.thumbnail img {
+  /* image when we click view more thumbnail pic takes up 100% of the pic */
+  width:100%;
+}
+
+/* gets rid of the spacing around the borders of our thumbnails*/
+.thumbnail {
+  padding: 0;
+}
+
+/* only select caption full inside thumbnail gives spacing from image downward */
+.thumbnail caption-full {
+  padding: 9px;
+}
+
+/* sets the edit and delete buttons on the same line rather than on top */
+.delete-form {
+  display: inline;
+}
